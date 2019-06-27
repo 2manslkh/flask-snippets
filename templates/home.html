@@ -1,0 +1,10 @@
+<html>
+    <body>
+        <form>
+            {% for i in modules %}
+            <a href="{{modules[i]['module_url']}}"><button type="button">{{modules[i]['name']}}</button></a><br>
+            
+            {% endfor %}
+        </form>
+    </body>
+</html>
