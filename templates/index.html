@@ -5,126 +5,38 @@
     <link rel="stylesheet" href="{{ url_for('serveStaticResource', resource='css/morris.css') }}">
 {% endblock %} 
 {% block content %}
+
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Dashboard</h1>
-    </div>
-    <!-- /.col-lg-12 -->
-</div>
-<!-- /.row -->
-<div class="row">
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-comments fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">26</div>
-                        <div>New Comments!</div>
-                    </div>
-                </div>
-            </div>
-            <a href="#">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-green">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-tasks fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">12</div>
-                        <div>New Tasks!</div>
-                    </div>
-                </div>
-            </div>
-            <a href="#">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-yellow">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-shopping-cart fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">124</div>
-                        <div>New Orders!</div>
-                    </div>
-                </div>
-            </div>
-            <a href="#">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-red">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-support fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">13</div>
-                        <div>Support Tickets!</div>
-                    </div>
-                </div>
-            </div>
-            <a href="#">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
+        <h1 class="page-header">Overview</h1>
     </div>
 </div>
-<table id='icons_table'>
-    <tr>
-        <td id='icon_rows'>
-            <a href="#">
-                <div class='iconborderradius'>
-                    <img src='/static/icons/emotions.png'>
-                    <h3 class='icon_text'>Entity-Sentiment Relationships</h3>
-                    <p class='icon_description'>Identifies relationships between entities and the relevant sentiments expressed towards it</p>
-                </div>
-            </a> 
-            <a href="#">
-                <div class='iconborderradius'>
-                    <img src='/static/icons/text_summarisation.png'>
-                    <h3 class='icon_text'>Unstructured Data Dynamic Masking</h3>
-                    <p class='icon_description'>Performs masking of the input text</p>
-                </div>
-            </a>
+
+
+<div class="row" id='icons_table'>
+        <div class="col-lg-4 col-md-6">
+            <a href="#"><div class='iconborderradius'>
+                <h1 class='icon_text'>Entity-Sentiment Relationships</h1>
+                <p class='icon_description'>Identifies relationships between entities and the relevant sentiments expressed towards it</p>
+                <img src='/static/icons/emotions.png'>
+            </div></a>
+        </div>      
+        <div class="col-lg-4 col-md-6">
+            <div class='iconborderradius'>
+                <h1 class='icon_text'>Unstructured Data Dynamic Masking</h3>
+                <p class='icon_description'>Performs masking of the input text</p>
+                <a href="#"><img src='/static/icons/text_summarisation.png'></a>
+            </div>
+        </div>   
+        <div class="col-lg-4 col-md-6">
             <div class='iconborderradius'>
                 <img src='/static/icons/topics.png'>
                 <h3 class='icon_text'>Topic Modelling</h3>
                 <p class='icon_description'>Identifies groups of documents and organises them into topics. Supports guided topic modelling as well</p>
                 <i>Work in progress</i>
             </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
             <a href="#">
                 <div class='iconborderradius'>
                     <img src='/static/icons/topics.png'>
@@ -133,9 +45,9 @@
                     <i>Work in progress</i>
                 </div>
             </a>
-        </td>
-    </tr>
-</table>
+        </div>
+    </td>
+</div>
 <!-- /.row -->{% endblock %}
 {% block js %}
     {{ super() }}
