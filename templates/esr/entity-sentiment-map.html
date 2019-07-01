@@ -1,0 +1,61 @@
+{% extends "base_layout.html" %} {% block title %}Sample{% endblock %} 
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Blank</h1>
+        </div>
+    </div>
+
+
+    <main class="main-content bgc-grey-100">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category == "success" %}
+                    <div class="alert-box success" style="text-align: center">{{ message }}</div>
+                    {% elif category == "failure" %}
+                    <div class="alert-box failure" style="text-align: center">{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="row">
+            <h3 class="col">Entity-level Sentiment Analysis</h3>
+            <div class="col">
+                <div class="row float-right">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#wordcloud" style="float: right;">
+                            Word Cloud
+                    </button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loaddataModal" style="float: right;">
+                            Load Movie Reviews data
+                    </button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loadtextModal" style="float: right;">
+                            Load Text
+                    </button>
+                    <button id="resolve" type="button" class="btn btn-primary" style="float: right;">
+                            Resolve coreferences
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Main javascript visualisation -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="bgc-white bd p-20" id="relationship-graph">
+                    <h4 class="subsection-headers">Key Relationships</h4>
+                    <script type="text/javascript" src="{{ url_for('static', filename='js/text_visualizations.js') }}"></script>
+                    <script type="text/javascript">
+                        $(function() {visualize_data({{ data|tojson}});});
+                    </script>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bgc-white bd p-20" id="content-text">
+                    <h4 class="subsection-headers">Content</h4>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

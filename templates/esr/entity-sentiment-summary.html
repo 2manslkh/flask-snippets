@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="/static/js/d3.min.js"></script>
+        <script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/static/js/tabulator.min.js"></script>
+        <script type="text/javascript" src="/static/js/d3pie.js"></script>
+        <script type="text/javascript" src="/static/js/chart.js"></script>
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <link rel="stylesheet" href="/static/css/tabulator.css">
+    </head>
+    <body>
+        <div class="sidebar-logo">
+            <div class="peers ai-c fxw-nw">
+                <div class="peer peer-greed">
+                    <div class="peers ai-c fxw-nw">
+                        <div class="peer">
+                            <div class="logo">
+                                <a href="{{ url_for('main.load_main') }}">
+                                    <img src="/static/icons/NCS_logo_White.png">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="peer peer-greed">
+                            <div class="peer peer-greed">
+                                <a href="{{ url_for('main.load_main') }}">
+                                    <h5 class="1h-1 mB-0 logo-text">NCS Digital</h5>
+                                    <h6 class="logo-text">Advanced Analytics & Big Data</h6>
+                                </a>       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col float-right text-right">
+                    <a href="{{ url_for('esr.entity_sentiment') }}">
+                        <h5 class="text-white">Under the hood</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="page-container bgc-grey-100">
+            <script type="text/javascript" src="{{ url_for('static', filename='js/entity-sentiment-summary.js') }}"></script>
+            <script type="text/javascript">
+                $(function() {calculate_summary({{ data|tojson }});});
+            </script>
+            <div class="row">
+                <div id="pie1" class="col-md-4 bgc-white"></div>
+                <div id="pie2" class="col-md-4 bgc-white"></div>
+                <div id="pie3" class="col-md-4 bgc-white"></div>
+            </div>
+            <div id="summary-table"></div>
+        </div>
+    </body>
+</html>

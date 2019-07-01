@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <table>
+            <form align=left>
+            {% for i in a %}
+            <tr>
+                <td>
+                    <a href="{{a[i]['module_url']}}"><button type="button">{{a[i]['name']}}</button></a><br>
+                </td>
+                <td>
+                    <textarea> {{a[i]['name']}} </textarea>
+                </td>
+            </tr>
+            {% endfor %}
+            </form>
+        </table>
+    </body>
+</html>

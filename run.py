@@ -3,6 +3,7 @@ from flask import Flask, url_for, render_template, send_from_directory
 import jinja2.exceptions
 
 app = Flask(__name__)
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -26,6 +27,11 @@ def template_not_found(e):
 @app.errorhandler(404)
 def not_found(e):
     return '<strong>Page Not Found!</strong>', 404
+
+# Views Blueprints
+from views.esr import esr_bp 
+
+app.register_blueprint(esr_bp)
 
 if __name__ == '__main__':
     app.run(debug=True,port=5003)
